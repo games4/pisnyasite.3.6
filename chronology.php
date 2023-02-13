@@ -12,7 +12,7 @@ $myrow_set = mysql_fetch_array ($result_set);
 <html lang="uk">
   <head>
     <?php include("blocks/script__google-analytics.php");?>
-    <meta charset="windows-1251">
+    <meta charset="utf-8">
     <title>-:- Українська пісня -:- <?php echo $myrow_set['title']; ?></title>
     <meta name="description" content="<?php echo $myrow_set['meta_d']; ?>">
     <meta name="keywords" content="<?php echo $myrow_set['meta_k']; ?>">
