@@ -57,7 +57,7 @@ echo '  </ul>';
 
 //2022-02-20 код для виводу пагінації 
 // Виводимо поточну сторінку 
-if (isset($page) && $page != 1 && $page != $total) $page_current = '<li class="pagination__item"><a class="pagination__link pagination__link--active" href="chronology.php?page='.$page.'#pagination">'.$page.'</a></li>';
+if (isset($page) && $page != 1 && $page != $total) $page_current = '<li class="pagination__item"><a class="pagination__link pagination__link--active" title="Поточна сторінка" href="chronology.php?page='.$page.'#pagination">'.$page.'</a></li>';
 // Виводимо посилання на першу сторінку
 if ($page == 1 && $total >= 2) $page_first = '<li class="pagination__item"><a class="pagination__link pagination__link--active" title="Перша"> 1 </a></li>';
 elseif ($page == 2 && $total > 2) $page_first = '';
@@ -74,12 +74,12 @@ if ($total > 3 && ($page + 1) < $total && ($page + 2) < $total ) $page_others_en
 if ($page == $total) $page_total = '<li class="pagination__item"><a class="pagination__link pagination__link--active" title="Остання">'.$total.'</a></li>';
 else $page_total = '<li class="pagination__item"><a class="pagination__link" title="Остання" href="chronology.php?page='.$total.'#pagination">'.$total.'</a></li>';
 // Виводимо три найближчі сторінки з обох боків, якщо вони є
-if($page + 1 < $total) $page_right_1 = '<li class="pagination__item"><a class="pagination__link" title="page_right_1" href="chronology.php?page='.($page + 1).'#pagination">'.($page + 1).'</a></li>';
-if($page + 2 < $total && $page < 2) $page_right_2 = '<li class="pagination__item"><a class="pagination__link" title="page_right_2" href="chronology.php?page='.($page + 2).'#pagination">'.($page + 2).'</a></li>';
-if($page + 3 <= $total) $page_right_3 = '<li class="pagination__item"><a class="pagination__link" href="chronology.php?page='.($page + 3).'#pagination">'.($page + 3).'</a></li>';
-if($page - 1 > 0) $page_left_1 = '<li class="pagination__item"><a class="pagination__link" title="page_left_1" href="chronology.php?page='.($page - 1).'#pagination">'.($page - 1).'</a></li>';
-if($page - 2 > 0 && $page > $total - 2 ) $page_left_2 = '<li class="pagination__item"><a class="pagination__link" title="page_left_2" href="chronology.php?page='.($page - 2).'#pagination">'.($page - 2).'</a></li>';
-if($page - 3 > 0) $page_left_3 = '<li class="pagination__item"><a class="pagination__link" href="chronology.php?page='.($page - 3).'#pagination">'.($page - 3).'</a></li>';
+if($page + 1 < $total) $page_right_1 = '<li class="pagination__item"><a class="pagination__link" title="На одну зправа" href="chronology.php?page='.($page + 1).'#pagination">'.($page + 1).'</a></li>';
+if($page + 2 < $total && $page < 2) $page_right_2 = '<li class="pagination__item"><a class="pagination__link" title="На дві зправа" href="chronology.php?page='.($page + 2).'#pagination">'.($page + 2).'</a></li>';
+if($page + 3 <= $total) $page_right_3 = '<li class="pagination__item"><a class="pagination__link" title="На три зправа" href="chronology.php?page='.($page + 3).'#pagination">'.($page + 3).'</a></li>';
+if($page - 1 > 0) $page_left_1 = '<li class="pagination__item"><a class="pagination__link" title="На одну зліва" href="chronology.php?page='.($page - 1).'#pagination">'.($page - 1).'</a></li>';
+if($page - 2 > 0 && $page > $total - 2 ) $page_left_2 = '<li class="pagination__item"><a class="pagination__link" title="На дві зліва" href="chronology.php?page='.($page - 2).'#pagination">'.($page - 2).'</a></li>';
+if($page - 3 > 0) $page_left_3 = '<li class="pagination__item"><a class="pagination__link" title="На три зліва" href="chronology.php?page='.($page - 3).'#pagination">'.($page - 3).'</a></li>';
 
 // Вивожу меню сторінок якщо сторінок більше однієї
 if ($total > 1)
