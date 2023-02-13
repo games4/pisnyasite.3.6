@@ -9,9 +9,6 @@
 <div class="section__caption">#<?php echo $myrow_set['title_s']; ?></div>
 <section class="compositions">
   <!-- list -->
-  <ul class="compositions__list">
     <?php include("main__chronology__list.php");?>
-  </ul>
-  <p class="the-end">* * *</p>
   <!-- /list -->
 </section>
