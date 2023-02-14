@@ -14,7 +14,7 @@ if (mysql_num_rows($count) < 7)
     <li>
       <a class="compositions__link" href="kompozycija.php?id='.$myrow_k["id"].'">
         <time class="compositions__date" datetime="'.$myrow_k["date"].'">'.$myrow_k["date"].'</time>
-        <b class="compositions__title">'.$myrow_k["title"].' - '.$myrow_k["vykonavec"].'</b>
+        <b class="compositions__title">'.$myrow_k["header"].'</b>
       </a>
     </li>';
     }
@@ -30,7 +30,7 @@ else
     <li>
       <a class="compositions__link" href="kompozycija.php?id='.$myrow_k["id"].'">
         <time class="compositions__date" datetime="'.$myrow_k["date"].'">'.$myrow_k["date"].'</time>
-        <b class="compositions__title">'.$myrow_k["title"].' - '.$myrow_k["vykonavec"].'</b>
+        <b class="compositions__title">'.$myrow_k["header"].'</b>
       </a>
     </li>';
     }
