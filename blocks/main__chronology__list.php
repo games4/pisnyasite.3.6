@@ -48,7 +48,7 @@ while ($myrow_k = mysql_fetch_array($result_k))
   echo '
     <li class="compositions__item">
       <a class="composition__link" href="kompozycija.php?id='.$myrow_k["id"].'">
-        <time class="composition__date" datetime="2017-06-26">'.$myrow_k["date"].'</time>
+        <time class="composition__date" datetime="'.$myrow_k["date"].'">'.$myrow_k["date"].'</time>
         <b class="compositions__title">'.$myrow_k["title"].' - '.$myrow_k["vykonavec"].'</b>
       </a>
     </li>';
