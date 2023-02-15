@@ -38,7 +38,7 @@ $start = $page * $limit - $limit;
 // Выбираем $limit сообщений начиная с номера $start
 // 2016-02-01
 
-$result_k = mysql_query ("SELECT kompozycija.id, kompozycija.title, vykonavec.title AS vykonavec FROM view, kompozycija, vykonavec WHERE kompozycija.id = view.kompozycija AND kompozycija.vykonavec1 = vykonavec.id ORDER BY kompozycija.title, view.num DESC LIMIT $start, $limit", $db); 
+$result_k = mysql_query ("SELECT kompozycija.id, kompozycija.title, kompozycija.header, vykonavec.title AS vykonavec FROM view, kompozycija, vykonavec WHERE kompozycija.id = view.kompozycija AND kompozycija.vykonavec1 = vykonavec.id ORDER BY kompozycija.title, view.num DESC LIMIT $start, $limit", $db); 
 verification_query_2($result_k);
 
 echo '<ul class="compositions__list">';
@@ -47,7 +47,7 @@ while ($myrow_k = mysql_fetch_array($result_k))
   echo '
     <li class="compositions__item">
       <a class="compositions__link" href="kompozycija.php?id='.$myrow_k["id"].'">
-        <span><b class="compositions__title">'.$myrow_k["title"].' - '.$myrow_k["vykonavec"].'</b></span>
+        <span><b class="compositions__title">'.$myrow_k["header"].'</b></span>
       </a>
     </li>
     ';
