@@ -7,11 +7,12 @@ while ($myrow_composition = mysql_fetch_array($result_composition))
 {
   echo '
       <li class="compositions__item">
-        <a class="compositions__link" href="kompozycija.php?id='.$myrow_composition["id"].'">'.$myrow_composition["header"].'</a>
+        <a class="compositions__link" href="kompozycija.php?id='.$myrow_composition["id"].'">
+          <span><b class="compositions__title">'.$myrow_composition["header"].'</b></span>
+        </a>
       </li>';
 }
 echo '
     </ul>
 ';
 ?>
-
