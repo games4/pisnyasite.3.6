@@ -30,9 +30,7 @@ $myrow_performer = mysql_fetch_array ($result_performer);
   </section>
   <section class="release__compositions compositions">
     <p class="section__caption">#Композиції</p>
-    <ul class="compositions__list">
-      <?php include("release__main__list.php"); ?>
-    </ul>
+    <?php include("release__main__list.php"); ?>
     <div class="page-main__container">
       <div class="page-main__banner none"></div>
       <div class="page-main__banner--midle">
