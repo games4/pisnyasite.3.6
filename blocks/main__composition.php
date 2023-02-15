@@ -14,9 +14,7 @@
 <div class="section__caption">#Наша сімка </div>
 <section class="compositions">
   <h3 class="visually-hidden">Cімка нових комозицій сайту</h3>
-  <ul class="compositions__seven">
-    <?php include("compositions__list-seven.php"); ?>
-  </ul>
+  <?php include("compositions__list-seven.php"); ?>
   <p class="the-end">* * *</p>
 </section>
 <div class="page-main__container">
