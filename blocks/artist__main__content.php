@@ -4,38 +4,36 @@ if (isset($vykonavec))
   $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec1 = $vykonavec AND view.kompozycija = kompozycija.id" , $db);
   verification_query_2($result_composition);
   
-  echo '  <ul class="compositions__list">';
+  echo '<ul class="compositions__list">';
   while ($myrow_composition = mysql_fetch_array ($result_composition))
   {
     echo '
-      <li class="compositions__item">
-        <a class="compositions__link" href="kompozycija.php?id='.$myrow_composition["id"].'">
-          <span><b class="compositions__title">'.$myrow_composition["title"].'</b></span>
-        </a>
-      </li>
-      ';
+    <li class="compositions__item">
+      <a class="compositions__link" href="kompozycija.php?id='.$myrow_composition["id"].'">
+        <span><b class="compositions__title">'.$myrow_composition["title"].'</b></span>
+      </a>
+    </li>';
   }
 echo '
-    </ul>
-    ';
+  </ul>
+  ';
   
-  echo '  <ul class="compositions__list">';
+  echo '<ul class="compositions__list">';
   $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec2 = $vykonavec AND view.kompozycija = kompozycija.id", $db);
   verification_query_2($result_composition);
 
   while ($myrow_composition = mysql_fetch_array ($result_composition))
   {
     echo '
-      <li class="compositions__item">
-        <a class="compositions__link" href="kompozycija.php?id='.$myrow_composition["id"].'">
-          <span><b class="compositions__title">'.$myrow_composition["title"].'</b></span>
-        </a>
-      </li>
-      ';
+    <li class="compositions__item">
+      <a class="compositions__link" href="kompozycija.php?id='.$myrow_composition["id"].'">
+        <span><b class="compositions__title">'.$myrow_composition["title"].'</b></span>
+      </a>
+    </li>';
   }
 echo '
-    </ul>
-    ';
+  </ul>
+  ';
   
   $result_subjects = mysql_query ("SELECT subject.id, subject.title FROM vykonavec_sklad, subject WHERE vykonavec_sklad.vykonavec = $id AND vykonavec_sklad.subject = subject.id", $db);
   verification_query_2($result_subjects);
@@ -59,20 +57,19 @@ else
 {
   $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec1 = $vykonavec1 AND kompozycija.vykonavec2 = $vykonavec2 AND view.kompozycija = kompozycija.id",$db);
   
-  echo '  <ul class="compositions__list">';
+  echo '<ul class="compositions__list">';
   while ($myrow_composition = mysql_fetch_array ($result_composition))
   {
     echo '
-      <li class="compositions__item">
-        <a class="compositions__link" href="kompozycija.php?id='.$myrow_composition["id"].'">
-          <span><b class="compositions__title">'.$myrow_composition["title"].'</b></span>
-        </a>
-      </li>
-      ';
+    <li class="compositions__item">
+      <a class="compositions__link" href="kompozycija.php?id='.$myrow_composition["id"].'">
+        <span><b class="compositions__title">'.$myrow_composition["title"].'</b></span>
+      </a>
+    </li>';
   }
 echo '
-    </ul>
-    ';
+  </ul>
+  ';
   
   $result_vykonavec1 = mysql_query ("SELECT * FROM vykonavec WHERE id = $vykonavec1", $db);
   verification_query($result_vykonavec1);
