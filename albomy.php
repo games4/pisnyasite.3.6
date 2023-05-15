@@ -37,7 +37,7 @@ $myrow_set = mysql_fetch_array ($result_set);
         <?php include("blocks/left.php");?>
       </aside>
       <main class="page-main">
-        <?php include("blocks/main__releases.php");?>
+        <?php include("blocks/releases__main.php");?>
       </main>
       <aside class="right-column">
         <?php include("blocks/right.php");?>
