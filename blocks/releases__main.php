@@ -9,7 +9,7 @@
 <div class="section__caption">#<?php echo $myrow_set['title_s']; ?></div>
 <section class="types-list">
   <!-- list -->
-  <?php include("main__releases__list.php"); ?>
+  <?php include("releases__main__list.php"); ?>
   <p class="the-end">* * *</p>
   <!-- /list -->
 </section>
