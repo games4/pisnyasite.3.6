@@ -5,14 +5,14 @@ include("blocks/db.php");
 <!DOCTYPE html>
 <html lang="uk">
   <head>
-    <?php include("blocks/script__google-analytics.php");?>
+    <?php include("settings/script-google-analytics.php");?>
     <meta charset="<?php include("settings/charset.php"); ?>">
     <title>Результати пошуку по сайту "Українська пісня"</title>
     <meta name="robots" content="noindex">
     <meta name="description" content="Сторінка результатів пошуку по сайту https://pisnya.org.ua">
     <meta name="keywords" content="<?php // echo $myrow['keywords']; ?>">
     <?php include("blocks/head.php");?>
-    <?php include("blocks/head__script__adsense.php");?>
+    <?php include("settings/script-google-adsense.php");?>
   </head>
   <body>
     <header class="page-header">

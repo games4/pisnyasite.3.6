@@ -21,13 +21,13 @@ $myrow = mysql_fetch_array ($result);
 <!DOCTYPE html>
 <html lang="uk">
   <head>
-    <?php include("blocks/script__google-analytics.php");?>
+    <?php include("settings/script-google-analytics.php");?>
     <meta charset="<?php include("settings/charset.php"); ?>">
     <title><?php echo $myrow['title']; ?> / композиції</title>
     <meta name="description" content="<?php echo $myrow['description']; ?>">
     <meta name="keywords" content="<?php echo $myrow['keywords']; ?>">
     <?php include("blocks/head.php");?>
-    <?php include("blocks/head__script__adsense.php");?>
+    <?php include("settings/script-google-adsense.php");?>
   </head>
   <body>
     <header class="page-header">

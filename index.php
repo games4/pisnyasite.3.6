@@ -58,14 +58,14 @@ $myrow = mysql_fetch_array ($result);
 <!DOCTYPE html>
 <html lang="uk">
   <head>
-    <?php include("blocks/script__google-analytics.php");?>
-    <meta charset="utf-8">
-    <meta name="google-site-verification" content="<?php include("blocks/content__google-site-verification.php");?>">
+    <?php include("settings/script-google-analytics.php");?>
+    <meta charset="<?php include("settings/charset.php"); ?>">
+    <meta name="google-site-verification" content="<?php include("settings/google-site-verification.php");?>">
     <title><?php echo $myrow_vykonavec1['title']." - ".$myrow['title']; ?> / текст пісні та відео до композиції - проект Українська пісня </title>
     <meta name="description" content="<?php echo $myrow_set['meta_d']; ?>">
     <meta name="keywords" content="<?php echo $myrow_set['meta_k']; ?>">
     <?php include("blocks/head.php");?>
-    <?php include("blocks/head__script__adsense.php");?>
+    <?php include("settings/script-google-adsense.php");?>
   </head>
   <body class="start-page">
     <header class="page-header">

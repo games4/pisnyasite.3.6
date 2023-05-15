@@ -8,17 +8,16 @@ $result_set = mysql_query ("SELECT * FROM settings WHERE page='pisni'",$db);
 verification_query($result_set);
 $myrow_set = mysql_fetch_array ($result_set);
 ?>
-
 <!DOCTYPE html>
 <html lang="uk">
   <head>
-    <?php include("blocks/script__google-analytics.php");?>
-    <meta charset="utf-8">
+    <?php include("settings/script-google-analytics.php");?>
+    <meta charset="<?php include("settings/charset.php"); ?>">
     <title><?php echo $myrow_set['title']; ?></title>
     <meta name="description" content="<?php echo $myrow_set['meta_d']; ?>">
     <meta name="keywords" content="<?php echo $myrow_set['meta_k']; ?>">
     <?php include("blocks/head.php");?>
-    <?php include("blocks/head__script__adsense.php");?>
+    <?php include("settings/script-google-adsense.php");?>
   </head>
   <body>
     <header class="page-header">
