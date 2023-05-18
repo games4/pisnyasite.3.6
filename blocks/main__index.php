@@ -1,21 +1,18 @@
-<h1 class="visually-hidden">Сайт "Українська пісня" - тільки найкраща відчизняна музика, тількі найцікавіші новини.</h1>
-
+        <h1 class="visually-hidden">Сайт "Українська пісня" - тільки найкраща відчизняна музика, тількі найцікавіші новини.</h1>
 <?php 
   if (isset($myrow['povidomlennya'])) 
   {
-    include("composition__notes.php");
-   // include("composition__promo.php");
-    include("composition__promo-link.php");
+        include("composition__notes.php");
+        include("composition__promo__link.php");
   }
   else 
   {
-    include("composition__promo.php");
+        include("composition__promo.php");
   }
 ?>
-
         <div class="section__caption">#Наша сімка </div>
         <section class="compositions">
-          <h3 class="visually-hidden">Cімка попередніх комозицій сайту</h3>
+          <h3 class="visually-hidden">Cімка попередніх комозицій</h3>
           <?php include("compositions__list-seven.php"); ?>
           <p class="the-end">* * *</p>
         </section>
@@ -33,6 +30,12 @@
           <header class="composition__info">
             <?php include("composition__info.php"); ?>
           </header>
+<?php 
+  if (isset($comment)) 
+  {
+          include("composition__main__comment.php");
+  }
+?>
           <section class="composition__lyric lyric">
             <h3 class="lyric__title"><?php echo $myrow['title']; ?></h3>
             <?php if ( trim($myrow_tvir['ftext']) == "" ) { echo '<p>'.nl2br(trim($myrow_tvir['text'])).'</p>' ;} else { echo trim($myrow_tvir['ftext']) ;} ?>
