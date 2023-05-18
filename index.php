@@ -49,15 +49,19 @@ $result_as = mysql_query ("SELECT title FROM avtor_sliv WHERE id = $avtor_sliv",
 verification_query($result_as);
 $myrow_as = mysql_fetch_array ($result_as);
 
-/* $result = mysql_query ("SELECT title, meta_d, meta_k, text FROM settings WHERE page = 'index'",$db);
-verification_query($result);
-$myrow = mysql_fetch_array ($result);
- */
-?>
+if (isset($myrow['comment']))
+{
+  $comment = $myrow['comment'];
+  $result_comment = mysql_query ("SELECT * FROM comment WHERE id = $comment", $db);
+  verification_query($result_comment);
+  $result_comment = mysql_fetch_array ($result_comment);
+}
 
+?>
 <!DOCTYPE html>
 <html lang="uk">
   <head>
+    <link rel="canonical" href="https://pisnya.org.ua/">
     <?php include("settings/script-google-analytics.php");?>
     <meta charset="<?php include("settings/charset.php"); ?>">
     <meta name="google-site-verification" content="<?php include("settings/google-site-verification.php");?>">
