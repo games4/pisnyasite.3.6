@@ -9,14 +9,14 @@ if (mysql_num_rows($result_authorwords) > 0)
   echo '
     <section class="compositions">
       <h2 class="composition__subject">
-        <span class="page__label">Автор текстів </span> 
+        <span class="page__label">Автор слів: </span> 
         <a class="performer" href="avtor_sliv.php?id='.$myrow_authorwords["id"].'">'.mb_ucfirst($myrow_authorwords["title"]).'</a>
       </h2>';
     echo '
       <p class="list__caption">#Композиції</p>
       ';
     $id_avtor_sliv = $myrow_authorwords['id'];
-    $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title, kompozycija.vykonannya FROM view, kompozycija, tvir WHERE tvir.avtor_sliv = $id_avtor_sliv AND kompozycija.tvir = tvir.id AND view.kompozycija = kompozycija.id",$db);
+    $result_composition = mysql_query ("SELECT DISTINCT kompozycija.id, kompozycija.title, kompozycija.vykonannya FROM view, kompozycija, tvir WHERE tvir.avtor_sliv = $id_avtor_sliv AND kompozycija.tvir = tvir.id AND view.kompozycija = kompozycija.id",$db);
     verification_query_2($result_composition);
     echo '<ul class="compositions__list">';
     while ($myrow_composition = mysql_fetch_array ($result_composition))
