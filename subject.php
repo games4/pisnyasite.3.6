@@ -7,7 +7,7 @@ $page = 'pisni';
 if (isset($_GET['id'])) {$id = $_GET['id'];	if ($id == '') {unset($id);}} 
 
 /* Безпека. Перевіряємо, чи є змінна, що передається, числом */
-if (!preg_match("|^[\d]+$|", $id)) { exit ("<p>Неверный формат запроса! Проверьте URL!</p>"); }
+if (!preg_match("|^[\d]+$|", $id)) { exit ("<p>Невірний формат запиту! Перевірте URL!</p>"); }
 
 //if (isset($_GET['id_vk'])) {$id_vk = $_GET['id_vk']; $id = $id_vk; if ($id_vk == '') {unset($id_vk);}}
 //if (isset($_GET['id_as'])) {$id_as = $_GET['id_as']; $id = $id_as; if ($id_as == '') {unset($id_as);}}
