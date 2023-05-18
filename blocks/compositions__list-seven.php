@@ -12,12 +12,12 @@ if (mysql_num_rows($count) < 7)
     while ($myrow_k = mysql_fetch_array($result_k))
     {
       echo '
-    <li>
-      <a class="compositions__link" href="kompozycija.php?id='.$myrow_k["id"].'">
-        <time class="compositions__date" datetime="'.$myrow_k["date"].'">'.$myrow_k["date"].'</time>
-        <b class="compositions__title">'.$myrow_k["header"].'</b>
-      </a>
-    </li>';
+          <li>
+            <a class="compositions__link" href="kompozycija.php?id='.$myrow_k["id"].'">
+              <time class="compositions__date" datetime="'.$myrow_k["date"].'">'.date("d-m-Y", strtotime($myrow_k["date"])).'</time>
+              <b class="compositions__title">'.$myrow_k["header"].'</b>
+            </a>
+          </li>';
     }
   }
 else
@@ -28,12 +28,12 @@ else
     while ($myrow_k = mysql_fetch_array($result_k))
     {
       echo '
-    <li>
-      <a class="compositions__link" href="kompozycija.php?id='.$myrow_k["id"].'">
-        <span><time class="compositions__date" datetime="'.$myrow_k["date"].'">'.$myrow_k["date"].'</time></span>
-        <span><b class="compositions__title">'.$myrow_k["header"].'</b></span>
-      </a>
-    </li>';
+          <li>
+            <a class="compositions__link" href="kompozycija.php?id='.$myrow_k["id"].'">
+              <span><time class="compositions__date" datetime="'.$myrow_k["date"].'">'.date("d-m-Y", strtotime($myrow_k["date"])).'</time></span>
+              <span><b class="compositions__title">'.$myrow_k["header"].'</b></span>
+            </a>
+          </li>';
     }
   }
 echo '
