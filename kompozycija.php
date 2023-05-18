@@ -7,7 +7,7 @@ $page = 'pisni';
 if (isset($_GET['id'])) {$id = $_GET['id']; if ($id == '') {unset($id);}} 
 
 /* Безпека - Перевіряємо, чи є змінна, що передається, числом */
-if (!preg_match("|^[\d]+$|", $id)) { exit ("<p>Неверный формат запроса! Проверьте URL!"); }
+if (!preg_match("|^[\d]+$|", $id)) { exit ("<p>Невірний формат запиту! Перевірте URL!"); }
 
 $result = mysql_query ("SELECT * FROM view, kompozycija WHERE view.kompozycija = kompozycija.id AND view.kompozycija= $id",$db);
 verification_query($result);
@@ -57,15 +57,19 @@ if (isset($vydannya))
   $myrow_vykonavecd = mysql_fetch_array ($result_vykonavecd);
 }
 
-/* $result = mysql_query ("SELECT title, meta_d, meta_k, text FROM settings WHERE page='index'",$db);
-verification_query($result);
-$myrow = mysql_fetch_array ($result);
- */
+if (isset($myrow['comment']))
+{
+  $comment = $myrow['comment'];
+  $result_comment = mysql_query ("SELECT * FROM comment WHERE id = $comment", $db);
+  verification_query($result_comment);
+  $result_comment = mysql_fetch_array ($result_comment);
+}
 
 ?>
 <!DOCTYPE html>
 <html lang="uk">
   <head>
+    <link rel="canonical" href="https://pisnya.org.ua/kompozycija.php?id=<?php echo $id ?>">
     <?php include("settings/script-google-analytics.php");?>
     <meta charset="<?php include("settings/charset.php"); ?>">
     <title><?php echo $myrow_vykonavec1['title']." - ".$myrow['title']; ?> / текст пісні та відео до композиції</title>
