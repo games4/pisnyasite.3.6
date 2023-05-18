@@ -1,4 +1,4 @@
-<h1 class="page__title"><span class="page__label">Автор музики </span><?php echo ' '.mb_ucfirst($myrow["title"]); ?></h1>
+<h1 class="page__title"><span class="page__label">Автор музики: </span><?php echo ' '.mb_ucfirst($myrow["title"]); ?></h1>
 <? 
 if ($myrow_set['description'] != "")
 {
