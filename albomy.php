@@ -12,6 +12,7 @@ $myrow_set = mysql_fetch_array ($result_set);
 <!DOCTYPE html>
 <html lang="uk">
   <head>
+    <link rel="canonical" href="https://pisnya.org.ua/albomy.php">
     <?php include("settings/script-google-analytics.php");?>
     <meta charset="<?php include("settings/charset.php"); ?>">
     <title><?php echo $myrow_set['title']; ?></title>
