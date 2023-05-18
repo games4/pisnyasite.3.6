@@ -9,14 +9,14 @@ if (mysql_num_rows($result_performer) > 0)
     echo '
     <section class="compositions">
       <h2 class="composition__subject">
-        <span class="page__label">Виконавець </span> 
+        <span class="page__label">Виконавець: </span> 
         <a class="performer" href="artist.php?id='.$myrow_performer["id"].'">'.$myrow_performer["title"].'</a>
       </h2>';
     echo '
       <p class="list__caption">#Композиції</p>
       ';
     $id_performer1 = $myrow_performer['id'];
-    $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title, kompozycija.name FROM view, kompozycija WHERE kompozycija.vykonavec1 = $id_performer1 AND view.kompozycija = kompozycija.id",$db);
+    $result_composition = mysql_query ("SELECT DISTINCT kompozycija.id, kompozycija.title, kompozycija.name FROM view, kompozycija WHERE kompozycija.vykonavec1 = $id_performer1 AND view.kompozycija = kompozycija.id",$db);
     verification_query_2($result_composition);
     echo '<ul class="compositions__list">';
     while ($myrow_composition = mysql_fetch_array ($result_composition))
@@ -29,7 +29,7 @@ if (mysql_num_rows($result_performer) > 0)
         </li>';
     }
     $id_performer2 = $myrow_performer['id'];
-    $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec2 = $id_performer2 AND view.kompozycija = kompozycija.id",$db);
+    $result_composition = mysql_query ("SELECT DISTINCT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec2 = $id_performer2 AND view.kompozycija = kompozycija.id",$db);
     verification_query_2($result_composition);
     while ($myrow_composition = mysql_fetch_array ($result_composition))
     {
