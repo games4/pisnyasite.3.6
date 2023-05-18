@@ -7,7 +7,7 @@ $page = 'kompozytory';
 if (isset($_GET['id'])) {$id = $_GET['id'];	if ($id == '') {unset($id);}} 
 
 /* Безпека. Перевіряємо, чи є змінна, що передається, числом */
-if (!preg_match("|^[\d]+$|", $id)) { exit ("<p>Неверный формат запроса! Проверьте URL!</p>"); }
+if (!preg_match("|^[\d]+$|", $id)) { exit ("<p>Невірний формат запиту! Перевірте URL!</p>"); }
 
 $result = mysql_query ("SELECT * FROM avtor_muzyky WHERE id = $id",$db);
 verification_query($result);
