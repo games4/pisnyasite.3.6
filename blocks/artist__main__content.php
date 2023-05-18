@@ -1,7 +1,7 @@
 <?php
 if (isset($vykonavec))
 { 
-  $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec1 = $vykonavec AND view.kompozycija = kompozycija.id" , $db);
+  $result_composition = mysql_query ("SELECT DISTINCT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec1 = $vykonavec AND view.kompozycija = kompozycija.id" , $db);
   verification_query_2($result_composition);
   
   echo '<ul class="compositions__list">';
@@ -19,7 +19,7 @@ echo '
   ';
   
   echo '<ul class="compositions__list">';
-  $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec2 = $vykonavec AND view.kompozycija = kompozycija.id", $db);
+  $result_composition = mysql_query ("SELECT DISTINCT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec2 = $vykonavec AND view.kompozycija = kompozycija.id", $db);
   verification_query_2($result_composition);
 
   while ($myrow_composition = mysql_fetch_array ($result_composition))
@@ -35,13 +35,13 @@ echo '
   </ul>
   ';
   
-  $result_subjects = mysql_query ("SELECT subject.id, subject.title FROM vykonavec_sklad, subject WHERE vykonavec_sklad.vykonavec = $id AND vykonavec_sklad.subject = subject.id", $db);
+  $result_subjects = mysql_query ("SELECT DISTINCT subject.id, subject.title FROM vykonavec_sklad, subject WHERE vykonavec_sklad.vykonavec = $id AND vykonavec_sklad.subject = subject.id", $db);
   verification_query_2($result_subjects);
   
   echo '<p class="composition__subject">';
   if (mysql_num_rows($result_subjects) > 0)
   {
-    echo '<span>Дивитись також: </span>';
+    echo '<span>ƒивитись також: </span>';
     while ($myrow_subjects = mysql_fetch_array($result_subjects))
     {
       echo '<a class="authors__link" href="subject.php?id='.$myrow_subjects["id"].'">'.mb_ucfirst($myrow_subjects["title"]).'</a> ';
@@ -55,7 +55,7 @@ echo '
 }
 else
 {
-  $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec1 = $vykonavec1 AND kompozycija.vykonavec2 = $vykonavec2 AND view.kompozycija = kompozycija.id",$db);
+  $result_composition = mysql_query ("SELECT DISTINCT kompozycija.id, kompozycija.title FROM view, kompozycija WHERE kompozycija.vykonavec1 = $vykonavec1 AND kompozycija.vykonavec2 = $vykonavec2 AND view.kompozycija = kompozycija.id",$db);
   
   echo '<ul class="compositions__list">';
   while ($myrow_composition = mysql_fetch_array ($result_composition))
