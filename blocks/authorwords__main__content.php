@@ -1,5 +1,5 @@
 <?php 
-$result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title, vykonavec.title AS vykonavec FROM view, kompozycija, tvir, vykonavec WHERE view.kompozycija = kompozycija.id AND kompozycija.tvir = tvir.id AND tvir.avtor_sliv = $id AND kompozycija.vykonavec1 = vykonavec.id ORDER BY kompozycija.title", $db);
+$result_composition = mysql_query ("SELECT DISTINCT kompozycija.id, kompozycija.title, vykonavec.title AS vykonavec FROM view, kompozycija, tvir, vykonavec WHERE view.kompozycija = kompozycija.id AND kompozycija.tvir = tvir.id AND tvir.avtor_sliv = $id AND kompozycija.vykonavec1 = vykonavec.id ORDER BY kompozycija.title", $db);
 verification_query_2($result_composition);
 
 echo '<ul class="compositions__list">';
