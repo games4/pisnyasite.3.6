@@ -39,21 +39,23 @@ $start = $page * $limit - $limit;
 //$result_k = mysql_query ("SELECT view.date, kompozycija.id, kompozycija.title, vykonavec.title AS vykonavec FROM view, kompozycija, vykonavec WHERE kompozycija.id = view.kompozycija AND kompozycija.vykonavec1 = vykonavec.id ORDER BY view.date DESC, view.num DESC",$db); 
 
 // 2022-02-18
-$result_k = mysql_query ("SELECT view.date, kompozycija.id, kompozycija.title, vykonavec.title AS vykonavec FROM view, kompozycija, vykonavec WHERE kompozycija.id = view.kompozycija AND kompozycija.vykonavec1 = vykonavec.id ORDER BY view.date DESC, view.num DESC LIMIT $start, $limit", $db); 
+$result_k = mysql_query ("SELECT view.date, kompozycija.id, kompozycija.title, kompozycija.header, vykonavec.title AS vykonavec FROM view, kompozycija, vykonavec WHERE kompozycija.id = view.kompozycija AND kompozycija.vykonavec1 = vykonavec.id ORDER BY view.date DESC, view.num DESC LIMIT $start, $limit", $db); 
 verification_query($result_k);
 
-echo '  <ul class="compositions__list">';
+echo '<ul class="compositions__list">';
 while ($myrow_k = mysql_fetch_array($result_k))
 {
   echo '
     <li class="compositions__item">
-      <a class="composition__link" href="kompozycija.php?id='.$myrow_k["id"].'">
-        <time class="composition__date" datetime="'.$myrow_k["date"].'">'.$myrow_k["date"].'</time>
-        <b class="compositions__title">'.$myrow_k["title"].' - '.$myrow_k["vykonavec"].'</b>
+      <a class="compositions__link" href="kompozycija.php?id='.$myrow_k["id"].'">
+        <span><time class="compositions__date" datetime="'.$myrow_k["date"].'">'.date("d-m-Y", strtotime($myrow_k["date"])).'</time></span>
+        <span><b class="compositions__title">'.$myrow_k["header"].'</b></span>
       </a>
     </li>';
 }
-echo '  </ul>';
+echo '
+  </ul>
+  ';
 
 //2022-02-20 код для виводу пагінації 
 // Виводимо поточну сторінку 
@@ -85,7 +87,7 @@ if($page - 3 > 0) $page_left_3 = '<li class="pagination__item"><a class="paginat
 if ($total > 1)
 {
   Error_Reporting(E_ALL & ~E_NOTICE);
-  echo '  <ul class="pagination pagination__list" id="pagination">';
+  echo '<ul class="pagination pagination__list" id="pagination">';
   // echo $page_previous;
   echo $page_first;
   echo $page_others_start;
