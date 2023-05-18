@@ -2,13 +2,11 @@
 include_once("blocks/func.inc.php");
 include("blocks/db.php");
 
-$page = 'albomy';
-
 if (isset($_GET['id'])) {$id = $_GET['id'];	if ($id == '') {unset($id);}} 
 /* Безпека. Перевіряємо, чи є змінна, що передається, числом */
-if (!preg_match("|^[\d]+$|", $id)) { exit ("<p>Неверный формат запроса! Проверьте URL!</p>"); }
+if (!preg_match("|^[\d]+$|", $id)) { exit ("<p>Невірний формат запиту! Перевірте URL!</p>"); }
 
-$result = mysql_query ("SELECT * FROM vydannya WHERE id = $id", $db);
+$result = mysql_query ("SELECT *, release_type.id, release_type.name AS release_type_name FROM vydannya, release_type WHERE vydannya.id = $id AND release_type.id = vydannya.type", $db);
 verification_query($result);
 $myrow = mysql_fetch_array ($result);
 
@@ -16,6 +14,7 @@ $myrow = mysql_fetch_array ($result);
 <!DOCTYPE html>
 <html lang="uk">
   <head>
+    <link rel="canonical" href="https://pisnya.org.ua/relese.php?id=<?php echo $id ?>">
     <?php include("settings/script-google-analytics.php");?>
     <meta charset="<?php include("settings/charset.php"); ?>">
     <title>Видання: <?php echo $myrow['title']; ?></title>
