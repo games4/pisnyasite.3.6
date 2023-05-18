@@ -1,4 +1,4 @@
-<h1 class="page__title"><span class="page__label">Виконавець </span><?php echo " ".$performance; ?></h1>
+<h1 class="page__title"><span class="page__label">Виконавець: </span><?php echo " ".$performance; ?></h1>
 <? 
 // if ($myrow_set['description'] != "")
 // {
