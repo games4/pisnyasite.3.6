@@ -9,14 +9,14 @@ if (mysql_num_rows($result_authormusic) > 0)
   echo '
     <section class="compositions">
       <h2 class="composition__subject">
-        <span class="page__label">Автор музики </span> 
-        <a class="performer" href="avtor_sliv.php?id='.$myrow_authormusic["id"].'">'.mb_ucfirst($myrow_authormusic["title"]).'</a>
+        <span class="page__label">Автор музики: </span> 
+        <a class="performer" href="avtor_muzyky.php?id='.$myrow_authormusic["id"].'">'.mb_ucfirst($myrow_authormusic["title"]).'</a>
       </h2>
       ';
     echo '<p class="list__caption">#Композиції</p>
       ';
     $id_authormusic = $myrow_authormusic['id'];
-    $result_composition = mysql_query ("SELECT kompozycija.id, kompozycija.title, kompozycija.vykonannya FROM view, kompozycija, tvir WHERE tvir.avtor_muzyky = $id_authormusic AND kompozycija.tvir = tvir.id AND view.kompozycija = kompozycija.id",$db);
+    $result_composition = mysql_query ("SELECT DISTINCT kompozycija.id, kompozycija.title, kompozycija.vykonannya FROM view, kompozycija, tvir WHERE tvir.avtor_muzyky = $id_authormusic AND kompozycija.tvir = tvir.id AND view.kompozycija = kompozycija.id",$db);
     verification_query_2($result_composition);
     echo '<ul class="compositions__list">';
     while ($myrow_composition = mysql_fetch_array ($result_composition))
