@@ -8,7 +8,7 @@ $result00 = mysql_query("SELECT COUNT(DISTINCT kompozycija) FROM view");
 verification_query($result00);
 $temp = mysql_fetch_array($result00);
 $posts = $temp[0];
-// echo "<p>всього записів в запиті view_compozition_count - $posts</p>";
+// echo "<p>всього записів у запиті view_compozition_count - $posts</p>";
 // визначаю загальну кількість сторінок 
 
 $result = mysql_query ("SELECT view.date FROM view, kompozycija WHERE view.kompozycija = kompozycija.id ORDER BY view.date DESC, view.num DESC", $db);
@@ -45,7 +45,7 @@ while ($myrow_kompozycija = mysql_fetch_array($result_kompozycija))
   </url>';
 }
 
-$result_vydannya = mysql_query ("SELECT DISTINCT vydannya.id, vydannya.lastmod_date FROM view, kompozycija, vydannya WHERE view.kompozycija = kompozycija.id AND kompozycija.vydannya = vydannya.id ORDER BY vydannya.id DESC", $db); 
+$result_vydannya = mysql_query ("SELECT DISTINCT vydannya.id, vydannya.lastmod_date FROM view, kompozycija, vydannya WHERE view.kompozycija = kompozycija.id AND kompozycija.vydannya = vydannya.id ORDER BY vydannya.id DESC", $db);
 verification_query_2($result_vydannya);
 while ($myrow_vydannya = mysql_fetch_array($result_vydannya))
 {
