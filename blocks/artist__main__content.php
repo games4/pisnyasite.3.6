@@ -41,7 +41,7 @@ echo '
   echo '<p class="composition__subject">';
   if (mysql_num_rows($result_subjects) > 0)
   {
-    echo '<span>ƒивитись також: </span>';
+    echo '<span>Дивитись також: </span>';
     while ($myrow_subjects = mysql_fetch_array($result_subjects))
     {
       echo '<a class="authors__link" href="subject.php?id='.$myrow_subjects["id"].'">'.mb_ucfirst($myrow_subjects["title"]).'</a> ';
