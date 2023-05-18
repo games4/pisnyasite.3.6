@@ -17,13 +17,13 @@ $myrow_performer = mysql_fetch_array ($result_performer);
   <section class="release__info">
     <h2 class="release__title"><?php echo $myrow['title']; ?> <span class="release__label">/ <?php echo $myrow['release_type_name']; ?></span></h2>
     <p class="releas__data"><span class="release__label">Рік: </span> <?php echo $myrow['rik']; ?></p>
-    <!-- <p class="releas__data"><span class="release__label">Дата релізу: </span> <?php echo date("d.m.Y", strtotime($myrow["date"])); ?></p> -->
+    <!-- <p class="releas__data"><span class="release__label">Дата релізу: </span> <?php // echo date("d.m.Y", strtotime($myrow["date"])); ?></p> -->
     <p class="releas__data">
       <span class="release__label"><?php if (isset($myrow['vykonavec'])) { echo 'Виконавець: ';} else {$myrow['release_type_name'] ;} ?></span>
       <?php if (isset($myrow['vykonavec'])) { echo '<a class="release__link" href="artist.php?id='.$myrow_performer['id'].'">'.$myrow_performer['title'].'</a>';} ?>
     </p>
     <p class="releas__data">
-      <span class="release__label">Видавник: </span>
+      <span class="release__label">Видавець: </span>
       <?php // echo '<a class="release__link" href="publisher.php?id='.$myrow_publisher["id"].'">'.mb_ucfirst($myrow_publisher["title"]).'</a>'; ?>
       <?php echo mb_ucfirst($myrow_publisher["title"]); ?>
     </p>
